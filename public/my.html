@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Моя библиотека · Онлайн книжный</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/my.css" />
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="header-left">
+      <h1>Моя библиотека</h1>
+      <div class="subtitle">
+        Здесь отображаются ваши покупки и аренды книг с этого аккаунта.
+      </div>
+      <div class="links">
+        <a href="/" class="link">← На главную</a>
+        <a href="/admin.html" class="link">Админ-панель</a>
+      </div>
+    </div>
+    <div class="auth">
+      <div class="auth-inputs">
+        <input id="user-email" placeholder="Email" />
+        <input id="user-pass" type="password" placeholder="Пароль" />
+        <button class="btn primary" id="btn-login">Войти</button>
+      </div>
+      <div class="note">Используйте тот же аккаунт, с которого оформляли заказы.</div>
+      <div id="user-info">Не авторизован</div>
+    </div>
+  </header>
+
+  <section class="filters">
+    <div class="filters-row">
+      <div class="filters-label">Фильтр:</div>
+      <select id="filter-status" class="select">
+        <option value="all">Все</option>
+        <option value="active">Только активные</option>
+        <option value="expired">Только завершённые/истекшие</option>
+        <option value="buy">Только покупки</option>
+        <option value="rent">Только аренда</option>
+      </select>
+      <button class="btn" id="btn-reload">Обновить</button>
+    </div>
+    <div class="hint">
+      Для аренды показываются даты и оставшиеся дни. Напоминания об окончании срока идут автоматически (в логе сервера).
+    </div>
+  </section>
+
+  <section id="list" class="cards"></section>
+  <div id="empty" class="empty" style="display:none;"></div>
+</div>
+
+<script src="js/my.js"></script>
+</body>
+</html>

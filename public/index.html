@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Онлайн книжный магазин</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="brand">
+      <div class="logo-dot"></div>
+      <div class="brand-title">
+        <span>Личная библиотека</span>
+        <span>Покупка и аренда любимых книг</span>
+      </div>
+    </div>
+    <div class="auth-block">
+      <div id="user-info">Гость · только просмотр</div>
+    <div class="auth-actions">
+  	<a href="/my.html" class="btn"><span class="icon">📚</span> Мои книги</a>
+  	<button class="btn" id="btn-open-login"><span class="icon">🔑</span> Войти</button>
+  	<button class="btn primary" id="btn-open-register"><span class="icon">➕</span> Создать аккаунт</button>
+	</div>
+    </div>
+  </header>
+
+  <section class="filters-card">
+    <div class="filters-topline">
+      <div class="filters-title">Найдите книгу по настроению: фильтры по категории, автору, году и сортировка.</div>
+      <button class="btn" id="apply-filters"><span class="icon">✨</span> Применить фильтры</button>
+    </div>
+    <div class="filters-main">
+      <input id="filter-category" class="input-pill" placeholder="Категория (например, Роман)" />
+      <input id="filter-author" class="input-pill" placeholder="Автор" />
+      <input id="filter-year" class="input-pill" type="number" placeholder="Год" />
+      <select id="sort-by" class="select-pill">
+        <option value="">Сортировка</option>
+        <option value="category">По категории</option>
+        <option value="author">По автору</option>
+        <option value="year">По году</option>
+      </select>
+    </div>
+    <div class="chips">
+      <div class="chip">Нажмите ✨ для обновления списка</div>
+      <div class="chip">Авторизуйтесь, чтобы покупать и арендовать</div>
+      <div class="chip">Аренда: 2 недели / 1 месяц / 3 месяца</div>
+    </div>
+  </section>
+
+  <section id="book-list" class="book-list"></section>
+  <div id="empty" class="empty-state" style="display:none;"></div>
+</div>
+
+<!-- Модалка логина/регистрации -->
+<div class="modal-backdrop" id="auth-modal">
+  <div class="modal">
+    <h3 id="modal-title">Войти</h3>
+    <p id="modal-sub">Введите email и пароль для входа.</p>
+    <input id="modal-email" placeholder="Email" />
+    <input id="modal-pass" type="password" placeholder="Пароль" />
+    <div class="modal-actions">
+      <button class="btn primary" id="modal-confirm">Продолжить</button>
+      <button class="btn btn-outline" id="modal-cancel">Отмена</button>
+    </div>
+  </div>
+</div>
+
+<!-- Модалка просмотра книги -->
+<div class="modal-backdrop" id="book-modal">
+  <div class="modal-book">
+    <div class="modal-book-header">
+      <div>
+        <h2 class="modal-book-title" id="book-modal-title"></h2>
+        <div class="modal-book-author" id="book-modal-author"></div>
+      </div>
+      <div class="modal-close" id="book-modal-close">✕</div>
+    </div>
+    <div id="book-modal-badge" class="modal-book-badge" style="display:none;"></div>
+    <div class="modal-book-body">
+      <div id="book-modal-cover" class="modal-book-cover" style="display:none;"></div>
+      <div>
+        <div class="modal-book-meta" id="book-modal-meta"></div>
+        <div class="modal-book-desc" id="book-modal-desc"></div>
+        <div class="modal-book-prices" id="book-modal-prices"></div>
+        <div class="modal-book-actions">
+          <button class="btn-xs primary" id="book-modal-buy">Купить</button>
+          <button class="btn-xs" id="book-modal-rent-2w">Аренда 2 недели</button>
+          <button class="btn-xs" id="book-modal-rent-1m">Аренда 1 месяц</button>
+          <button class="btn-xs" id="book-modal-rent-3m">Аренда 3 месяца</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/index.js"></script>
+</body>
+</html>
